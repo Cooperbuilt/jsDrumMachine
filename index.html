@@ -75,5 +75,39 @@
 
 
  </body>
- <script type="text/javascript" href="app.js"></script>
+ <script>
+   //function to playsound based on key data selected
+   function playSound(e) {
+   	   //audio equals the first audio element that matches the key code
+ 	  //utiling es6 named import
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); 
+      //key tracks the div in use by the keydown funct
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      //if no audio that matches, dont run
+      if(!audio) return;
+      //rewind the audio to begin to allow fast repetition
+      audio.currentTime = 0;
+      //play the audio
+      audio.play();
+      //add the playing class
+      key.classList.add('playing');
+   }
+
+    //remove class after it's transition is complete
+	function removeTrans(e) {
+       if (e.propertyName != 'transform') return; 
+       this.classList.remove('playing');
+	}
+
+	
+    /*
+    LISTENERS
+    */
+
+	//listen for the keys!
+	window.addEventListener('keydown', playSound);
+ 	//listen for transforms to finish
+	const keys = document.querySelectorAll('.key');
+	keys.forEach(key => key.addEventListener('transitionend', removeTrans));
+ </script>
 </html>
