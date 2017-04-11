@@ -56,10 +56,18 @@ html {
 }
 
 #key-container {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 kbd {
@@ -76,9 +84,15 @@ kbd {
     transition: all 0.07s;
 	background: rgba(100, 100, 100, .7);
 	text-align: center;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
 }
 
 .sound {
@@ -88,10 +102,13 @@ kbd {
 }
 
 .playing {
- transform: scale(1.1);
+ -webkit-transform: scale(1.1);
+     -ms-transform: scale(1.1);
+         transform: scale(1.1);
  border-color: #ffc600;
  box-shadow: 0 0 10px #ffc600;
 }
+
 
 
 
